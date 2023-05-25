@@ -1,0 +1,23 @@
+*{
+    font-family: Vn;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: black;
+    color: #08f7fe;
+}
+
+.container {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    padding: 100px 0;
+    height: 100vh;
+}
+
+.timer {
+    display: flex;
+    font-size: 120px;
+    justify-content: center;
+}

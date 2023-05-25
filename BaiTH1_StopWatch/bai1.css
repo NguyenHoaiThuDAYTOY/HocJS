@@ -1,0 +1,50 @@
+*{
+    font-family: Calibri;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: #ffbe33;
+    color: white;
+}
+
+.container {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    padding: 100px 0;
+    height: 100vh;
+}
+
+.title {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 40px;
+    letter-spacing: 1px;
+}
+
+.timer {
+    display: flex;
+    font-size: 120px;
+    justify-content: center;
+}
+
+.btn {
+    margin: auto;
+}
+
+button {
+    margin: auto 20px;
+    padding: 10px 30px;
+    font-size: 40px;
+    text-transform: uppercase;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    background: white;
+    color: black;
+}
+
+button:hover {
+    background: #cccccc;
+}
