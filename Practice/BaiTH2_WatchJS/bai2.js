@@ -1,9 +1,3 @@
-let number = document.querySelectorAll('.number')
-let day = document.querySelector('.day')
-let h = 0
-let m = 0
-let s = 0
-
 const showTime = () => {
     const time = new Date()
     h = time.getHours()
@@ -13,16 +7,14 @@ const showTime = () => {
     m = convertNumber(m)
     h = convertNumber(h)
     if(h >= 12) {
-        day.innerHTML = 'PM'
+        document.getElementById('12time').innerHTML = (h-12) + ':'+ m + ':' + s + 'PM'
     } else {
-        day.innerHTML = 'AM'
+        document.getElementById('12time').innerHTML = h + ':'+ m + ':' + s + 'AM'
     }
-    number[0].innerHTML = h
-    number[1].innerHTML = m
-    number[2].innerHTML = s
-    setTimeout(showTime, 1000)
+    document.getElementById('24time').innerHTML = h + ':'+ m + ':' + s 
+    
+    setInterval(showTime, 1000)
 }
-
 const convertNumber = (x) => {
     if (x < 10){
         x = '0' + x

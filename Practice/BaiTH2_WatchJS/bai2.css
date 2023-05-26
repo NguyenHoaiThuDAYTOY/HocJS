@@ -1,5 +1,5 @@
 *{
-    font-family: Vn;
+    font-family: Calibri;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -17,7 +17,7 @@
 }
 
 .timer {
-    display: flex;
-    font-size: 120px;
+    display: grid;
+    font-size: 150px;
     justify-content: center;
 }
