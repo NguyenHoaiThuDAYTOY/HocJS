@@ -4,7 +4,7 @@ let elapsedTime = 0;
 
 const start = () => {
     startTime = new Date().getTime() - elapsedTime;
-    timer = setInterval(displayTimer, 10);
+    timer = setInterval(displayTimer, 1000);
 }
 
 const stop = () => {
@@ -20,13 +20,5 @@ const displayTimer = () => {
     elapsedTime = new Date().getTime() - startTime;
     var minutes = Math.floor((elapsedTime / 1000 / 60) % 60);
     var seconds = Math.floor((elapsedTime / 1000) % 60);
-    document.getElementById("timer").innerHTML = formatTime(minutes) + ":" + formatTime(seconds);
-}
-
-const formatTime = (time) => {
-    if (time < 10) {
-        return "0" + time;
-    } else {
-        return time;
-    }
+    document.getElementById("timer").innerHTML = (minutes).toString().padStart(2, '0') + ":" + (seconds).toString().padStart(2, '0');
 }
