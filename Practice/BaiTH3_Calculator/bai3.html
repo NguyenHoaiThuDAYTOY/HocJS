@@ -11,36 +11,36 @@
     <div class="container">
         <div class="content">
             <div class="screen">
-                <span class="input">0</span>
+                <input type="text" id="display" >
             </div>
             <div class="keyboard">
                 <table>
                     <tr>
-                        <td><button class="item">+</button></td>
-                        <td><button class="item">-</button></td>
-                        <td><button class="item">*</button></td>
-                        <td><button class="item">/</button></td>
+                        <td><button class="item"  onclick="display.value += '+'">+</button></td>
+                        <td><button class="item"  onclick="display.value += '-'">-</button></td>
+                        <td><button class="item"  onclick="display.value += '*'">*</button></td>
+                        <td><button class="item" onclick="display.value += '/'">/</button></td>
                     </tr>
                     <tr>
-                        <td><button class="item">7</button></td>
-                        <td><button class="item">8</button></td>
-                        <td><button class="item">9</button></td>
-                        <td rowspan="4" class="blue"><button class="item">=</button></td>
+                        <td><button class="item" onclick="display.value += '7'">7</button></td>
+                        <td><button class="item" onclick="display.value += '8'">8</button></td>
+                        <td><button class="item" onclick="display.value += '9'">9</button></td>
+                        <td rowspan="4" class="blue"><button class="item" onclick="display.value = eval(display.value)">=</button></td>
                     </tr>
                     <tr>
-                        <td><button class="item">4</button></td>
-                        <td><button class="item">5</button></td>
-                        <td><button class="item">6</button></td>
+                        <td><button class="item" onclick="display.value += '4'">4</button></td>
+                        <td><button class="item" onclick="display.value += '5'">5</button></td>
+                        <td><button class="item" onclick="display.value += '6'">6</button></td>
                     </tr>
                     <tr>
-                        <td><button class="item">1</button></td>
-                        <td><button class="item">2</button></td>
-                        <td><button class="item">3</button></td>
+                        <td><button class="item" onclick="display.value += '1'">1</button></td>
+                        <td><button class="item" onclick="display.value += '2'">2</button></td>
+                        <td><button class="item" onclick="display.value += '3'">3</button></td>
                     </tr>
                     <tr>
-                        <td><button class="item">0</button></td>
-                        <td><button class="item">.</button></td>
-                        <td><button class="item">C</button></td>
+                        <td><button class="item"  onclick="display.value += '0'">0</button></td>
+                        <td><button class="item" onclick="validateDOT()">.</button></td>
+                        <td><button class="item" onclick="display.value = display.value.toString().slice(0,-1)">C</button></td>
                     </tr>
                 </table>
             </div>
