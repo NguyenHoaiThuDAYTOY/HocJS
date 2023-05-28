@@ -11,7 +11,7 @@
     <div class="container">
         <div class="content">
             <div class="screen">
-                <input type="text" id="display" >
+                <input type="text" id="display">
             </div>
             <div class="keyboard">
                 <table>
@@ -39,8 +39,8 @@
                     </tr>
                     <tr>
                         <td><button class="item"  onclick="display.value += '0'">0</button></td>
-                        <td><button class="item" onclick="validateDOT()">.</button></td>
-                        <td><button class="item" onclick="display.value = display.value.toString().slice(0,-1)">C</button></td>
+                        <td><button class="item" onclick="(display.value.split(/[-+\\/\\*]/).pop().split('.').length == 1 && display.value.split(/[-+\\/\\*]/).pop().length != 0)? (display.value += '.') : (display.value = display.value)">.</button></td>
+                        <td><button class="item" onclick="display.value = ''">C</button></td>
                     </tr>
                 </table>
             </div>
