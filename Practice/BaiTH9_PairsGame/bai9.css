@@ -55,11 +55,12 @@ table td {
 table td .tile {
     width: 100%;
     height: 100%;
-    background: greenyellow;
+    background: rgb(0, 0, 0);
     border-radius: 5px;
     cursor: pointer;
+    transition: 0.5s;
 }
 
 table td .tile:hover {
-    background: rgb(214, 255, 153);
+    background: rgb(43, 43, 41);
 }

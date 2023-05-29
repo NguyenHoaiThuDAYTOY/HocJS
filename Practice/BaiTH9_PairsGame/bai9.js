@@ -1,6 +1,7 @@
-let colors = ['blue', 'yellow', 'orange', 'plum', 'darkmagenta']
+let colors = ['blue', 'purple', 'orange', 'red', 'green']
+let colorsList = [...colors, ...colors]
 const elements = [];
-function getRandomElement(arr) {
+const getRandomElement = (arr) => {
     if (elements.length < 10) {
         const index = Math.floor(Math.random() * arr.length)
         const element = arr.splice(index, 1)[0];
@@ -10,7 +11,6 @@ function getRandomElement(arr) {
         return elements
     }
 }
-let colorsList = [...colors, ...colors]
 let randomColor = getRandomElement(colorsList)
 let tiles = document.querySelectorAll('.tile')
 let count = 0
@@ -20,7 +20,6 @@ for(let i = 0; i < 10; i++){
     let color = randomColor[i]
     tiles[i].setAttribute('data-color', color)
     tiles[i].setAttribute('data-choosed', 'false')
-    console.log(color)
 }
 const choose = (element) => {
     const choosed = element.getAttribute('data-choosed')
@@ -28,7 +27,6 @@ const choose = (element) => {
         return
     }
     let color = element.getAttribute('data-color')
-    console.log(color)
     element.style.background = color
     if(!activeTile){
         activeTile = element
@@ -54,6 +52,6 @@ const choose = (element) => {
             activeTile.style.backgroundColor = null
             chooseTile = false
             activeTile = null
-        }, 1000)
+        }, 800)
     }  
 }
