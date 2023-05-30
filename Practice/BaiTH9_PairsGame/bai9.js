@@ -1,5 +1,5 @@
-let colors = ['blue', 'purple', 'orange', 'red', 'green']
-let colorsList = [...colors, ...colors]
+let imgSrc = ['dimsum', 'sushi', 'rice', 'takoyaki', 'tokbokki']
+let imgSrcList = [...imgSrc, ...imgSrc]
 const elements = [];
 const getRandomElement = (arr) => {
     if (elements.length < 10) {
@@ -11,47 +11,49 @@ const getRandomElement = (arr) => {
         return elements
     }
 }
-let randomColor = getRandomElement(colorsList)
+let randomImgSrc = getRandomElement(imgSrcList)
 let tiles = document.querySelectorAll('.tile')
 let count = 0
 let activeTile = null
 let chooseTile = false
 for(let i = 0; i < 10; i++){
-    let color = randomColor[i]
-    tiles[i].setAttribute('data-color', color)
+    let imgSrc = randomImgSrc[i]
+    console.log(imgSrc)
+    tiles[i].setAttribute('data-color', imgSrc)
     tiles[i].setAttribute('data-choosed', 'false')
 }
 const choose = (element) => {
     const choosed = element.getAttribute('data-choosed')
+    let imgSrc = element.getAttribute('data-color')
+    let img = document.createElement('img')
+    img.setAttribute('src', `./image/${imgSrc}.png`)
+    element.append(img)
     if(chooseTile || choosed === 'true'){
         return
     }
-    let color = element.getAttribute('data-color')
-    element.style.background = color
-    if(!activeTile){
+    if(element && !activeTile){
         activeTile = element
         return
     }
-    let colorMatch = activeTile.getAttribute('data-color')
-    if(colorMatch == color){
+    let imgSrcMatch = activeTile.getAttribute('data-color')
+    if(imgSrcMatch.localeCompare(imgSrc) == 0){
         activeTile.setAttribute('data-choosed', 'true')
         element.setAttribute('data-choosed', 'true')
         chooseTile = false
         activeTile = null
         count += 2
-        if (count === 10) {
-            alert("You win");
-            location.reload()
-        }
-        return;
+        return count
     }
-    if(colorMatch != color){
+    if(imgSrcMatch.localeCompare(imgSrc) != 0){
         chooseTile = true
         setTimeout(() => {
-            element.style.background = null
-            activeTile.style.backgroundColor = null
+            element.removeChild(element.firstElementChild)
+            activeTile.removeChild(activeTile.firstElementChild)
             chooseTile = false
             activeTile = null
-        }, 800)
+        }, 2000)
     }  
+}
+const newGame = () => {
+    location.reload()
 }

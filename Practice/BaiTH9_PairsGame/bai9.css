@@ -1,4 +1,4 @@
-*{
+* {
     font-family: Calibri;
     margin: 0;
     padding: 0;
@@ -25,7 +25,7 @@
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 1px;
-    padding: 50px 0;
+    padding: 40px 0;
 }
 
 .content .title h1 {
@@ -35,6 +35,21 @@
 
 .content .title p {
     font-size: 20px;
+}
+
+.content .title button {
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: black;
+    padding: 5px 10px;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.content .title button:hover {
+    background: #cccccc;
+    cursor: pointer;
 }
 
 table {
@@ -48,8 +63,8 @@ table tr {
 
 table td {
     padding: 5px;
-    width: 100px;
-    height: 140px;
+    width: 150px;
+    height: 150px;
 }
 
 table td .tile {
@@ -59,6 +74,14 @@ table td .tile {
     border-radius: 5px;
     cursor: pointer;
     transition: 0.5s;
+    position: relative;
+}
+
+table td .tile img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
 }
 
 table td .tile:hover {

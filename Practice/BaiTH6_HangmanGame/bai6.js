@@ -1,13 +1,35 @@
-let answer = ['java', 'javascript', 'php', 'python']
-let randomAnswer = Math.floor(Math.random() * (answer.length - 1))
-const input = document.getElementById("input");
-let chosenAnswer = answer[randomAnswer];
+let data = [
+  {ques: 'quả xoài', ans: 'mango'},
+  {ques: 'dâu tây', ans: 'strawberry'},
+  {ques: 'con gà', ans: 'chicken'},
+  {ques: 'bạch tuộc', ans: 'octopus'},
+  {ques: 'tôm hùm', ans: 'lobster'},
+  {ques: 'cà chua', ans: 'tomato'},
+]
+let randomData = Math.floor(Math.random() * (data.length - 1))
+document.querySelector('.question').innerHTML = data[randomData].ques
+let chosenAnswer = data[randomData].ans;
 chosenAnswer = chosenAnswer
   .replace(/[^a-zA-Z0-9]/g, "")
   .toLocaleUpperCase();
 console.log(chosenAnswer);
 for (let guessSpot = 0; guessSpot < chosenAnswer.length; guessSpot++) {
-  input.innerHTML += '<div class="spot">_</div>';
+  document.getElementById("input").innerHTML += '<div class="spot">_</div>';
+}
+let div = document.querySelectorAll('.letters')
+for (let i = 65; i < 78; i++) {
+  let button = document.createElement("button");
+  button.classList.add("letter");
+  button.setAttribute('onclick','guess(this)')
+  button.innerText = String.fromCharCode(i);
+  div[0].append(button)
+}
+for (let i = 78; i < 91; i++) {
+  let button = document.createElement("button");
+  button.classList.add("letter");
+  button.setAttribute('onclick','guess(this)')
+  button.innerText = String.fromCharCode(i);
+  div[1].append(button)
 }
 let listSpots = document.getElementsByClassName("spot")
 let remainingLives = 10;

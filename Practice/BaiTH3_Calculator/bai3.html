@@ -11,36 +11,36 @@
     <div class="container">
         <div class="content">
             <div class="screen">
-                <input type="text" id="display">
+                <input type="text" id="display" onkeydown="keyup(event)" >
             </div>
             <div class="keyboard">
                 <table>
                     <tr>
-                        <td><button class="item"  onclick="display.value += '+'">+</button></td>
-                        <td><button class="item"  onclick="display.value += '-'">-</button></td>
-                        <td><button class="item"  onclick="display.value += '*'">*</button></td>
-                        <td><button class="item" onclick="display.value += '/'">/</button></td>
+                        <td><button class="item"  onclick="cal('+')">+</button></td>
+                        <td><button class="item"  onclick="cal('-')">-</button></td>
+                        <td><button class="item"  onclick="cal('*')">*</button></td>
+                        <td><button class="item" onclick="cal('/')">/</button></td>
                     </tr>
                     <tr>
-                        <td><button class="item" onclick="display.value += '7'">7</button></td>
-                        <td><button class="item" onclick="display.value += '8'">8</button></td>
-                        <td><button class="item" onclick="display.value += '9'">9</button></td>
-                        <td rowspan="4" class="blue"><button class="item" onclick="display.value = eval(display.value)">=</button></td>
+                        <td><button class="item" onclick="show('7')">7</button></td>
+                        <td><button class="item" onclick="show('8')">8</button></td>
+                        <td><button class="item" onclick="show('9')">9</button></td>
+                        <td rowspan="4" class="blue"><button class="item" onclick="calc()">=</button></td>
                     </tr>
                     <tr>
-                        <td><button class="item" onclick="display.value += '4'">4</button></td>
-                        <td><button class="item" onclick="display.value += '5'">5</button></td>
-                        <td><button class="item" onclick="display.value += '6'">6</button></td>
+                        <td><button class="item" onclick="show('4')">4</button></td>
+                        <td><button class="item" onclick="show('5')">5</button></td>
+                        <td><button class="item" onclick="show('6')">6</button></td>
                     </tr>
                     <tr>
-                        <td><button class="item" onclick="display.value += '1'">1</button></td>
-                        <td><button class="item" onclick="display.value += '2'">2</button></td>
-                        <td><button class="item" onclick="display.value += '3'">3</button></td>
+                        <td><button class="item" onclick="show('1')">1</button></td>
+                        <td><button class="item" onclick="show('2')">2</button></td>
+                        <td><button class="item" onclick="show('3')">3</button></td>
                     </tr>
                     <tr>
-                        <td><button class="item"  onclick="display.value += '0'">0</button></td>
-                        <td><button class="item" onclick="(display.value.split(/[-+\\/\\*]/).pop().split('.').length == 1 && display.value.split(/[-+\\/\\*]/).pop().length != 0)? (display.value += '.') : (display.value = display.value)">.</button></td>
-                        <td><button class="item" onclick="display.value = ''">C</button></td>
+                        <td><button class="item"  onclick="show('0')">0</button></td>
+                        <td><button class="item" onclick="dot()">.</button></td>
+                        <td><button class="item" onclick="wipe()">C</button></td>
                     </tr>
                 </table>
             </div>

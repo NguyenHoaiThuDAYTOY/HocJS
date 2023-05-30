@@ -17,8 +17,11 @@ const addToDo = () => {
     div.appendChild(del);
     input.value = ''
 }
-
 const del = (elements) => {
     let delElement = elements.parentNode
     delElement.classList.add('remove')
+}
+const keyup = (event) => {
+    if (event.keyCode == 13)
+        addBtn.click()
 }

@@ -1,4 +1,5 @@
-let guessColor
+let guessColor = document.querySelector('#colorName')
+let btn = document.querySelectorAll('.btn')
 const randomNumber = (min, max) => {
     return min + Math.floor(Math.random() * (max - min + 1));
 } 
@@ -10,21 +11,20 @@ const randomColor = () => {
 }
 const newColor = () => {
     document.querySelector('#result').innerHTML = 'result !'
-    guessColor = randomColor()
-    document.querySelector('#colorName').innerHTML = guessColor
-    const btn = document.querySelectorAll('.btn')
-    const index = randomNumber(0, 5)
     for(let i = 0; i < 6; i++){
-        btn[i].style.backgroundColor = i === index ? guessColor : randomColor()
-    }
-}
-const guess = (event) => {
-    if (event.style.backgroundColor === guessColor) {
-        document.querySelector('#result').innerHTML = 'correct !'
-    } else {
-        document.querySelector('#result').innerHTML = 'wrong !'
+        btn[i].style.backgroundColor = randomColor()
+        console.log(btn[i].style.backgroundColor)
     }
 }
 const start = () => {
     newColor()
+    let index = randomNumber(0, 5)
+    guessColor.innerHTML = btn[index].style.backgroundColor
+}
+const guess = (event) => {
+    if (event.style.backgroundColor === guessColor.innerHTML) {
+        document.querySelector('#result').innerHTML = 'correct !'
+    } else {
+        document.querySelector('#result').innerHTML = 'wrong !'
+    }
 }
